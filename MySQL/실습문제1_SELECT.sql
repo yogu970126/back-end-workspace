@@ -40,7 +40,7 @@ LIMIT 10;
 -- 6. customer_list 테이블에서 id가 6인 사람부터 10명 조회
 SELECT id , name
 FROM customer_list 
-ORDER BY id ASC
+ORDER BY id
 LIMIT 5,10;
 
 -- 7. actor 테이블에서 J로 시작하는 이름과 글자수 조회 (공백 X, 정렬은 글자수가 많은 사람 순으로)
@@ -52,7 +52,7 @@ LIMIT 10;
 
 -- 8. film 테이블에서 description에서 of 이전 문장만 중복 없이 10개만 추출해서 조회
           -- SUBSTR | SUBSTRING(컬럼|'문자열', 시작 위치 값, 추출할 문자 개수)
-SELECT  DISTINCT substr(description, 1, instr(description, 'of')-1)
+SELECT  DISTINCT substr(description, 1, instr(description, 'of')-2)
 FROM film
 ORDER BY 1 DESC
 LIMIT 10;
