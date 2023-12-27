@@ -345,6 +345,109 @@ SELECT emp_name,
 FROM employee
 ORDER BY 2, 4 DESC;
 
+/*
+	CASE WHEN 조건식 1 THEN 결과값 1
+		 WHEN 조건식 2 THEN 결과값 2
+         ...
+         ELSE 결과값 N
+	END
+    
+    -> if ~ else if ~ else 문과 유사
+*/
+-- 사번, 사원명, 주민번호, 성별(남자, 여자) 조회
+SELECT emp_id, emp_name, emp_no, 
+		CASE WHEN substr(emp_no, 8, 1) = 1 THEN '남자'
+			 WHEN substr(emp_no, 8, 1) = 2 THEN '여자'
+             ELSE '잘못된 주민번호입니다'
+		END AS '성별'
+FROM employee;
+
+-- 사원명, 급여, 급여 등급(1 ~ 4) 조회
+-- salary 값이 500만원 초과일 경우 1등급
+-- salary 값이 500만원 이하 350만원 초과일 경우 2듭급
+-- salary 값이 350만원 이하 200만원 초과일 경우 3등급
+-- 그 외의 경우는 4등급
+SELECT emp_name, salary, 
+		CASE WHEN salary > 5000000 THEN '1등급'
+			 WHEN salary > 3500000 THEN '2등급'
+             WHEN salary > 2000000 THEN '3등급'
+             ELSE '4등급' 
+		END AS '급여 등급'
+FROM employee;
+
+-- 그룹함수 (집계함수) ----------------------------
+/*
+	그룹함수  --> 결과값 1개
+    - 대량의 데이터들로 집계나 통계 같은 작업을 처리해야 하는 경우 사용되는 함수들
+    - 모든 그룹 함수는 NULL 값을 자동으로 제외하고 값이 있는 것들만 계산
+    
+    SUM(숫자)
+    - 해당 컬럼값들의 총 합계를 반환
+*/
+-- 전체 사원의 총 급야 합 조회
+SELECT format(sum(salary),0) as '급여 합계'
+FROM employee;
+
+-- 부서코드가 D5인 사원들의 총 연봉(급여 * 12) 합계
+SELECT format(sum(salary*12), 0)
+FROM employee
+WHERE dept_code = 'D5';
+
+/*
+	AVG(숫자)
+	- 해당 컬럼값들의 평균값을 반환
+    - 모든 그룹 함수는 NULL 값을 자동으로 제외하기 때문에 AVG 함수를 사용할 때는 COALESCE 또는 IFNULL 함수와
+      함께 사용하는 것을 권장
+*/
+-- 전체 사원의 평균 급여, 평균 보너스율 조회
+SELECT AVG(salary), AVG(ifnull(salary, 0)), AVG(bonus), AVG(IFNULL(bonus,0))
+FROM employee;
+
+/*
+	MIN | MAX(모든타입의 컬럼)
+    - MIN : 해당 컬럼 값들 중에 가장 작은 값을 반환
+    - MAX : 해당 컬럼 값들 중에 가장 큰 값을 반환
+*/
+-- 가장 작은 값에 해당하는 사원명, 급여, 입사일 조회
+SELECT MIN(emp_name), MIN(salary), MIN(hire_date)
+FROM employee;
+
+-- 가장 큰 값에 해당하는 사원명, 급여, 입사일 조회
+SELECT MAX(emp_name), MAX(salary), MAX(hire_date)
+FROM employee;
+
+/*
+	COUNT(*|컬럼|DISTINCT 컬럼)
+    - 컬럼 또는 행의 개수를 세서 반환
+    
+    COUNT(*) : 조회 결과에 해당하는 모든 행 개수를 반환
+    COUNT(컬럼) : 해당 컬럼 값이 NULL이 아닌 행 개수를 반환
+    COUNT(DISTINCT 컬럼) : 해당 컬럼값의 중복을 제거한 행 개수를 반환
+*/
+-- 전체 사원 수 조회
+SELECT COUNT(*)
+FROM employee;
+-- 보너스를 받은 사원 수 조회
+SELECT COUNT(bonus)
+FROM employee;
+-- 부서가 배치된 사원 수 조회
+SELECT COUNT(dept_code)
+FROM employee;
+-- 현재 사원들이 속해있는 부서 수 조회
+SELECT COUNT(DISTINCT dept_code)
+FROM employee;
+-- 현재 사원들이 분포되어있는 직급 수
+SELECT COUNT(DISTINCT job_code)
+FROM employee;
+-- 퇴사한 직원의 수 조회 (퇴사날짜 - ent_date 또는 퇴사여부 - ent_yn이 y인 경우)
+SELECT COUNT(*)
+FROM employee
+WHERE ent_yn = 'Y';
+
+SELECT COUNT(ent_date)
+FROM employee;
+
+
 
 
 
