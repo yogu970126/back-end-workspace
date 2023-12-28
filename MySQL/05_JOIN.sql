@@ -271,9 +271,16 @@ FROM employee
 	JOIN job USING(job_code)
     JOIN department ON(dept_code = dept_id)
     JOIN location ON(location_id = local_code)
-    JOIN national USING(national_code)
     WHERE job_name = '대리' AND local_name LIKE 'ASIA%';
  
+ -- where 구문
+ SELECT emp_id, emp_name , job_name, dept_title, local_name, salary
+ FROM employee e, job j, department, location 
+ WHERE e.job_code = j.job_code
+ AND dept_code = dept_id
+ AND location_id = local_code
+ AND job_name = '대리'
+ AND local_name LIKE 'ASIA%';
 
 -- 2. 70년대생 이면서 여자이고, 성이 전씨인 직원들의 
 -- 직원명, 주민번호, 부서명, 직급명 조회
@@ -284,15 +291,31 @@ FROM employee
 	WHERE substr(emp_no, 1, 2) BETWEEN 70 AND 79
 		AND substr(emp_no, 8, 1) = 2
         AND emp_name LIKE '전%';
+        
+-- where 구문
+SELECT emp_name, emp_no, dept_title, job_name
+FROM employee e, department, job j
+WHERE dept_code = dept_id
+AND e.job_code = j.job_code
+-- AND emp_no LIKE '7%'
+-- AND substr(emp_no, 8, 1) = 2
+AND emp_no LIKE '7_____-2%'
+AND emp_name LIKE '전%';
 
 -- 3. 보너스를 받은 직원들의 직원명, 보너스, 연봉(salary + salary * bonus) * 12, 부서명, 근무지역 조회
 -- 단, 부서 코드가 없는 사원도 출력 / OUTER JOIN 사용
-SELECT emp_name, bonus, (salary + salary * bonus) * 12 as '연봉', dept_title, local_name, dept_code
+SELECT emp_name, bonus, (salary + salary * ifnull(bonus, 0)) * 12 as '연봉', dept_title, local_name
 FROM employee
 	LEFT JOIN department ON(dept_code = dept_id)
 	LEFT JOIN location ON(location_id = local_code)
-    LEFT JOIN national USING(national_code)
     WHERE bonus IS NOT NULL;
+    
+-- where 구문 (부서 코드가 없는 사원은 출력 X)
+SELECT emp_name, bonus, (salary + salary * ifnull(bonus, 0)) * 12 as '연봉', dept_title, local_name
+FROM employee, department, location
+WHERE dept_code = dept_id
+AND location_id = local_code
+AND bonus IS NOT NULL;
 
 -- 4. 한국과 일본에서 근무하는 직원들의 직원명, 부서명, 근무지역, 근무 국가를 조회
 SELECT emp_name, dept_title, local_name, national_name
