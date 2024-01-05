@@ -43,6 +43,8 @@ CREATE TABLE tb_book (
     bk_pub_no INT,
     FOREIGN KEY(bk_pub_no) REFERENCES tb_publisher(pub_no) ON DELETE CASCADE
 );
+ALTER TABLE tb_book ADD CONSTRAINT FOREIGN KEY (pub_no) REFERENCES tb_publisher(pub_no);
+
 INSERT INTO tb_book VALUES(1, '오늘부터 개발자', '김병욱', 16800, 1);
 INSERT INTO tb_book VALUES(2, '요즘 우아한 개발', '우아한 형제들', 24000, 2);
 INSERT INTO tb_book VALUES(3, '프로덕트 매니저 원칙', '장홍석', 22000, 2);
@@ -120,6 +122,10 @@ CREATE TABLE tb_rent(
     FOREIGN KEY(rent_mem_no) REFERENCES tb_member(member_no) ON DELETE SET NULL,
     FOREIGN KEY(rent_book_no) REFERENCES tb_book(bk_no) ON DELETE SET NULL
 );
+ALTER TABLE tb_rent ADD CONSTRAINT member_no_fk
+	FOREIGN KEY(member_no) REFERENCES tb_member(member_no);
+ALTER TABLE tb_rent ADD CONSTRAINT bk_no_fk
+	FOREIGN KEY(bk_no) REFERENCES tb_book(bk_no);
 
 INSERT INTO tb_rent VALUES(1, 1, 2, default);
 INSERT INTO tb_rent VALUES(2, 1, 3, default);
