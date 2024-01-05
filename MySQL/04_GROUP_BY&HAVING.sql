@@ -79,7 +79,7 @@ GROUP BY dept_code;
     grouping : rollup이나 cube에 의해 산출된 값이 해당 컬럼의 집합에 산출물이면 0, 아니면 1 
     -> 집계된 값인지, 아닌지 정도만 구분
 	
-    sqld에서 꼭 이상하게 나오는 문제는 있지만 실제 쓰이진 않음, 몰라도 된다
+    sqld에서 꼭 이상하게 나오는 문제는 있지만 실제 쓰이진 않음, 몰라도 된다, 시험도 안나옴
 */
 -- 직급별 급여 합 조회
 SELECT dept_code, job_code, sum(salary), grouping(job_code)
