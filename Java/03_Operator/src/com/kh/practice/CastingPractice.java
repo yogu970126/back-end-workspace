@@ -8,15 +8,20 @@ public class CastingPractice {
 
 	public static void main(String[] args) {
 	CastingPractice cp = new CastingPractice();
-	//cp.method1();
-	cp.method2();
+	cp.method1();
+	//cp.method2();
 
 
 	}
 	public void method1() {
 		// 키보드로 문자 하나를 입력 받아 그 문자와 다음 문자의 유니코드를 출력하세요.
-		System.out.print("문자 입력 : ");
-		char ch = sc.nextInt();
+		System.out.print("문자 : ");
+		char ch = sc.nextLine().charAt(0);
+		int word = ch;
+		System.out.printf("%c"word);
+		System.out.printf(word+1);
+		
+		
 		
 		
 	}
