@@ -93,16 +93,7 @@ public class E_Logical {
 		System.out.println(result);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 
 }
