@@ -46,3 +46,8 @@ WHERE phone LIKE '__1%';
 SELECT emp_id, emp_name, email
 FROM employee
 WHERE email LIKE '___$_%' ESCAPE '$';
+
+-- eMployee 테이블에 직급코드(job_code) 중복없이 조회
+SELECT DISTINCT job_code
+FROM employee
+ORDER BY 1;
