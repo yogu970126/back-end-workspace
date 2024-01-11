@@ -8,8 +8,8 @@ public class CastingPractice {
 
 	public static void main(String[] args) {
 	CastingPractice cp = new CastingPractice();
-	//cp.method1();
-	cp.method2();
+	cp.method1();
+	//cp.method2();
 
 
 	}
