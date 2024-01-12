@@ -255,6 +255,17 @@ CREATE TABLE tb_book (
     bk_pub_no INT,
     FOREIGN KEY(bk_pub_no) REFERENCES TB_PUBLISHER(pub_no) ON DELETE CASCADE
 );
+
+INSERT INTO tb_book VALUES(6,'집에 갈래', '끄아앙', 36000, 3);
+
+UPDATE tb_book
+SET bk_title = '집에 갈래 2'
+WHERE bk_title = '집에 갈래';
+
+DELETE FROM tb_book
+WHERE bk_title = '집에 갈래 2';
+
+
 INSERT INTO tb_book(bk_title, bk_author, bk_price, bk_pub_no) VALUES('오늘부터 개발자', '김병욱', 16800, 1);
 INSERT INTO tb_book(bk_title, bk_author, bk_price, bk_pub_no) VALUES('요즘 우아한 개발', '우아한 형제들', 24000, 2);
 INSERT INTO tb_book(bk_title, bk_author, bk_price, bk_pub_no) VALUES('프로덕트 매니저 원칙', '장홍석', 22000, 2);
@@ -358,4 +369,21 @@ WHERE rent_date = '2000-10-10';
 
 -- 6. 회원번호가 1번인 회원이 대여한 도서들의 도서명, 출판사명, 대여일, 반납예정일을 조회하시오.
 
+-- 부서별 평균 급여가 300만원 이상인 부서의 평균 급여 조회
+SELECT dept_code ,format(avg(ifnull(salary,0)),0) as '평균 급여'
+FROM employee
+GROUP BY dept_code
+HAVING avg(ifnull(salary,0)) >= 3000000;
+
+-- 직급별 총 급여의 합이 1000만원 이상인 직급만 조회
+SELECT job_code, SUM(salary)
+FROM employee
+GROUP BY job_code
+HAVING SUM(salary) >= 10000000;
+
+-- 부서별 보너스를 받는 사원이 없는 부서만 조회
+SELECT dept_code , count(bonus)
+FROM employee
+GROUP BY dept_code
+HAVING count(bonus) = 0;
 
