@@ -8,6 +8,7 @@ SELECT dept_code,
 	   count(*) '사원 수',
        sum(salary) '총 급여',
        avg(coalesce(salary,0)) '평균 급여',
+       format(avg(ifnull(salary,0)),0),
        min(salary) '최저 급여',
        max(salary) '최고 급여'
 FROM employee
