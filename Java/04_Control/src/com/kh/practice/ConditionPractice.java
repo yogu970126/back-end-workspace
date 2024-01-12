@@ -192,6 +192,7 @@ public class ConditionPractice {
 	 * 아이디 : happy222 비밀번호 : 1234 아이디가 틀렸습니다.
 	 */
 	public void practice7() {
+		
 
 	}
 
