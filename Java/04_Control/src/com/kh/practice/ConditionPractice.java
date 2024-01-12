@@ -8,7 +8,11 @@ public class ConditionPractice {
 	public static void main(String[] args) {
 		ConditionPractice cp = new ConditionPractice();
 		// cp.practice1();
-		cp.practice2();
+		// cp.practice2();
+		// cp.practice3();
+		// cp.practice4();
+		// cp.practice5();
+		cp.practice6();
 	}
 
 	/*
@@ -64,7 +68,24 @@ public class ConditionPractice {
 	 * 
 	 */
 	public void practice3() {
+		int pizza = 0;
+		int pizzaMan = 0;
+		int result = 0;
 
+		System.out.print("피자 조각 수 : ");
+		pizza = sc.nextInt();
+		System.out.print("피자 먹는 사람 수 : ");
+		pizzaMan = sc.nextInt();
+
+		if (pizzaMan % pizza == 0) {
+			result = pizzaMan / pizza;
+		} else if (pizzaMan % pizza != 0) {
+			result = (pizzaMan / pizza) + 1;
+		}
+
+		System.out.print("피자 조각 수 : " + pizza + " ");
+		System.out.print("피자 먹는 사람 수 : " + pizzaMan);
+		System.out.print(" " + result);
 	}
 
 	/*
@@ -77,6 +98,34 @@ public class ConditionPractice {
 	 * 국어점수 : 88 수학점수 : 50 영어점수 : 45 합계 : 183 평균 : 61.0 축하합니다, 합격입니다!
 	 */
 	public void practice4() {
+		int kor = 0;
+		int eng = 0;
+		int math = 0;
+
+		System.out.print("국어 점수를 입력하세요 > ");
+		kor = sc.nextInt();
+		System.out.print("영어 점수를 입력하세요 > ");
+		eng = sc.nextInt();
+		System.out.print("수학 점수를 입력하세요 > ");
+		math = sc.nextInt();
+
+		int sumall = (kor + eng + math);
+		int avg = sumall / 3;
+
+		if (kor >= 40) {
+			if (eng >= 40) {
+				if (math >= 40) {
+					if (avg >= 60) {
+						System.out.printf("국어점수 : %d 수학점수 : %d 영어점수 : %d 합계 : %d 평균 : %d 축하합니다, 합격입니다!", kor, eng, math,
+								sumall, avg);
+					} else
+						System.out.printf("국어점수 : %d 수학점수 : %d 영어점수 : %d 불합격입니다.", kor, eng, math);
+				} else
+					System.out.printf("국어점수 : %d 수학점수 : %d 영어점수 : %d 불합격입니다.", kor, eng, math);
+			} else
+				System.out.printf("국어점수 : %d 수학점수 : %d 영어점수 : %d 불합격입니다.", kor, eng, math);
+		} else
+			System.out.printf("국어점수 : %d 수학점수 : %d 영어점수 : %d 불합격입니다.", kor, eng, math);
 
 	}
 
@@ -87,6 +136,23 @@ public class ConditionPractice {
 	 * 구매한 옷 가격 : 580,000 464,000
 	 */
 	public void practice5() {
+		int price = 0;
+		int payment = 0;
+
+		System.out.print("옷 가격 입력 : ");
+		price = sc.nextInt();
+
+		if (price >= 500000) {
+			payment = (int) (price * 0.8);
+			System.out.println("구매한 옷 가격 : " + price + " " + payment);
+		} else if (price >= 300000) {
+			payment = (int) (price * 0.9);
+			System.out.println("구매한 옷 가격 : " + price + " " + payment);
+		} else if (price >= 100000) {
+			payment = (int) (price * 0.95);
+			System.out.println("구매한 옷 가격 : " + price + " " + payment);
+		} else
+			System.out.println("구매한 옷 가격 : " + price);
 
 	}
 
@@ -95,6 +161,22 @@ public class ConditionPractice {
 	 * 따라 예각일 때 1, 직각일 때 2, 둔각일 때 3, 평각일 때 4를 출력하세요.
 	 */
 	public void practice6() {
+		int degree = 0;
+
+		System.out.print("각도 입력 : ");
+		degree = sc.nextInt();
+
+		if (degree >= 181 || degree <= 0) {
+			System.out.println("잘못 입력");
+		} else if (degree == 180) {
+			System.out.println("4. 평각");
+		} else if (degree < 180 && degree > 90) {
+			System.out.println("3. 둔각");
+		} else if (degree == 90 ) {
+			System.out.println("2. 직각");
+		} else if (degree > 0 && degree < 90) {
+			System.out.println("1. 예각");
+		}
 
 	}
 
