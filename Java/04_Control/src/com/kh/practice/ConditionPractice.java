@@ -12,7 +12,9 @@ public class ConditionPractice {
 		// cp.practice3();
 		// cp.practice4();
 		// cp.practice5();
-		cp.practice6();
+//		cp.practice6();
+//		cp.practice7();
+		cp.practice8();
 	}
 
 	/*
@@ -191,9 +193,24 @@ public class ConditionPractice {
 	 * 
 	 * 아이디 : happy222 비밀번호 : 1234 아이디가 틀렸습니다.
 	 */
-	public void practice7() {
+	public void practice7() {		
+		String idcheck = "happy";
+		int pwdcheck = 1234;
 		
+		System.out.print("아이디 : ");
+		String id = sc.nextLine();
+		System.out.print("비밀번호 : ");
+		int pwd = sc.nextInt();
 
+		if (id.equals(idcheck) && pwd == pwdcheck) {
+			System.out.println("로그인 성공!");
+		} else if (!(id.equals(idcheck)) && pwd == pwdcheck) {
+			System.out.println("아이디가 틀렸습니다.");
+		} else if (id.equals(idcheck) && pwd != pwdcheck) {
+			System.out.println("비밀번호가 틀렸습니다.");
+		} else {
+			System.out.println("로그인 실패");
+		}
 	}
 
 	/*
@@ -205,6 +222,22 @@ public class ConditionPractice {
 	 * 
 	 */
 	public void practice8() {
+		System.out.print("키를 입력해 주세요 : ");
+		double height = sc.nextDouble();
+		System.out.print("몸무게를 입력해 주세요 : ");
+		int weight = sc.nextInt();
+		
+		double BMI = weight / (height * height);
+		if(BMI >= 30) {
+			System.out.println(BMI + " 고도 비만");
+		} else if (BMI >= 25) {
+			System.out.println(BMI + " 비만");
+		} else if (BMI >= 23) {
+			System.out.println(BMI + " 과체중");
+		} else if (BMI >= 18.5) {
+			System.out.println(BMI + " 정상체중");
+		} else System.out.println(BMI + " 저체중");
+		
 
 	}
 
