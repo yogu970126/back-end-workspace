@@ -25,11 +25,12 @@ public class VariablePractice {
 		int adultprice = 10000;
 		int teenprice = 7000;
 		
-		System.out.printf("성인 %d명 : %d원", adult, adultprice*adult);
-		System.out.println();
-		System.out.printf("청소년 %d명 : %d원", teen, teenprice*teen);
-		System.out.println();
-		System.out.printf("총 금액 : %d", (adultprice*adult)+(teenprice*teen));
+		int adulttotal = adultprice * adult;
+		int teentotal = teenprice * teen;
+		
+		System.out.printf("성인 %d명 : %d원\n", adult, adulttotal);
+		System.out.printf("청소년 %d명 : %d원\n\n", teen, teentotal);
+		System.out.printf("총 금액 : %d원", (adulttotal+teentotal));
 		
 	}
 	public void method2() {
@@ -37,13 +38,21 @@ public class VariablePractice {
 		int y = 7;
 		int z = 9;
 		
+		int tmp = x; // 임시 변수 저장
+		
+		x = y;
+		y = z;
+		z = tmp;
+		 
+		/* 야매풀이
 		x = 7;
 		y = 9;
 		z = 5;
+		*/
 		
 		System.out.println("x=" + x);
 		System.out.println("y=" + y);
-		System.out.println("z=" + z);	
+		System.out.println("z=" + z);
 	}
 	public void method3() {
 	// 영어 문자열 값을 키보드로 입력 받아 문자에서 첫번째 글자와 마지막 글자를 출력하세요.

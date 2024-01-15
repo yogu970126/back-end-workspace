@@ -8,11 +8,11 @@ public class OperatorPractice {
 	
 	public static void main(String[] args) {
 		OperatorPractice op = new OperatorPractice();
-		// op.method1();
+//		 op.method1();
 		//op.method2();
 		//op.method3();
 		//op.method4();
-		//op.method5();
+//		op.method5();
 		op.method6();
 				
 	}
