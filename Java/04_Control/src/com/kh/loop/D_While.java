@@ -46,16 +46,22 @@ public class D_While {
 	
 	
 	/*
-	 * do{
+	 * do { 
 	 * 		실행 코드
 	 * } while(조건식);
-	 */
+	 * 
+	 * - 조건과 상관없이 무조건 한 번은 실행
+	 * */
 	public void method3() {
-		int number =1;
+		int number = 1;
 		
-		while(number ==0) {
-			System.out.println("while문 ");
+		while(number == 0) {
+			System.out.println("while문");
 		}
+		
+		do {
+			System.out.println("do-while문");
+		} while(number == 0);
 	}
 	
 	/*
