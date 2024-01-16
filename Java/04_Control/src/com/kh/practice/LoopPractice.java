@@ -7,7 +7,11 @@ class LoopPractice {
 	
 	public static void main(String[] args) {
 		LoopPractice l = new LoopPractice();
-		l.method1();
+//		l.method1();
+//		l.method2();
+//		l.method3();
+		l.method4();
+//		l.method5();
 	}
  
     /*
@@ -48,9 +52,20 @@ class LoopPractice {
 
     */
     public void method3() {
+    	System.out.print("문자열 : ");
     	String str = sc.nextLine();
-
+    	System.out.print("문자 : ");
+    	char ch = sc.next().charAt(0);
+    	
+    	int count = 0;
+ 
+    	for(int i =0; i <str.length(); i++) {
+    		if (str.charAt(i) == ch) {
+    			count++;
+    		} 
+    	} System.out.printf("%s 안에 포함된 %s 개수 : %d", str, ch, count);
     }
+
 
     /*
         4. 0이 나올 때까지 숫자를 출력하시오. (random 사용! 0 ~ 10)
@@ -63,7 +78,13 @@ class LoopPractice {
         0
      */
     public void method4() {
-
+    	for(int i =0; i < 10; i++) {
+    		double ran = Math.random() * 11;
+    		System.out.println((int)ran);
+    		if (ran == 0) {
+    			break;
+    		}
+    	}
     }
 
     /*
