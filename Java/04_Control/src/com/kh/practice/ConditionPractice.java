@@ -14,7 +14,10 @@ public class ConditionPractice {
 		// cp.practice5();
 //		cp.practice6();
 //		cp.practice7();
-		cp.practice8();
+//		cp.practice8();
+//		cp.practice9();
+//		cp.practice10();
+		cp.practice11();
 	}
 
 	/*
@@ -249,6 +252,28 @@ public class ConditionPractice {
 	 * 
 	 */
 	public void practice9() {
+		System.out.print("숫자 입력 : ");
+		int num1 = sc.nextInt();
+		System.out.print("숫자 입력 : ");
+		int num2 = sc.nextInt();
+		System.out.print("연산자를 입력 (+, -, *, /, %) > ");
+		char operator = sc.next().charAt(0);
+		
+		if (num1 <= 0 || num2 <= 0) {
+			System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
+		} else if(operator == '+') {
+			System.out.printf("%d + %d = %d",num1,num2,(num1+num2));
+		} else if(operator == '-') {
+			System.out.printf("%d - %d = %d",num1,num2,(num1-num2));
+		} else if(operator == '*') {
+			System.out.printf("%d * %d = %d",num1,num2,(num1*num2));
+		} else if(operator == '/') {
+			System.out.printf("%d / %d = %d",num1,num2,(num1/num2));
+		} else if(operator == '%') {
+			System.out.printf("%d %% %d = %d",num1,num2,(num1%num2)); // 탈출문자 지정 : % + 내용
+		} else System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
+		
+		
 
 	}
 
@@ -259,6 +284,19 @@ public class ConditionPractice {
 	 * 1. 입력 2. 수정 3. 조회 4. 삭제 9. 종료 메뉴 번호를 입력하세요 : 3 조회 메뉴입니다.
 	 */
 	public void practice10() {
+		System.out.print("1. 입력 2. 수정 3. 조회 4. 삭제 9. 종료 | 메뉴 번호를 입력하세요 : ");
+		int menu = sc.nextInt();
+		if (menu == 1) {
+			System.out.print("입력 메뉴입니다.");
+		} else if (menu == 2) {
+			System.out.print("수정 메뉴입니다.");
+		} else if (menu == 3) {
+			System.out.print("조회 메뉴입니다.");
+		} else if (menu == 4) {
+			System.out.print("삭제 메뉴입니다.");
+		} else if (menu == 9) {
+			System.out.print("프로그램이 종료됩니다.");
+		} 
 
 	}
 
@@ -285,8 +323,27 @@ public class ConditionPractice {
 	 * FAIL [출석 횟수 부족] (10/20) FAIL [점수 미달] (총점 66.0)
 	 * 
 	 */
-	public void practice11() {
-
+	public void practice11() {		
+		System.out.print("중간 고사 점수 : ");
+		int midscore = sc.nextInt();
+		System.out.print("기말 고사 점수 : ");
+		int endscore = sc.nextInt();
+		System.out.print("과제 점수 : ");
+		int homeworkscore = sc.nextInt();
+		System.out.print("출석 회수 : ");
+		int attendancescore = sc.nextInt();
+		
+		double finalscore = ((midscore*0.2) + (endscore*0.3) + (homeworkscore*0.3) + (attendancescore));
+		
+		if (finalscore >= 70 && attendancescore >=14) {
+			System.out.println("총점 : " + finalscore + " PASS");
+		} else if(finalscore < 70 && attendancescore >=14) {
+			System.out.printf("FAIL [점수 미달] (총점 %.1f)", finalscore);
+		} else if(finalscore >= 70 && attendancescore <14) {
+			System.out.printf("FAIL [출석 횟수 부족] (%d/20)",attendancescore);
+		} else if(finalscore < 70 && attendancescore <14) {
+			System.out.printf("FAIL [출석 횟수 부족] (%d/20) FAIL [점수 미달] (총점 %.1f)", attendancescore, finalscore);
+		}
 	}
 
 }
