@@ -10,8 +10,9 @@ class LoopPractice {
 //		l.method1();
 //		l.method2();
 //		l.method3();
-		l.method4();
+//		l.method4();
 //		l.method5();
+		l.method6();
 	}
  
     /*
@@ -78,13 +79,13 @@ class LoopPractice {
         0
      */
     public void method4() {
-    	for(int i =0; i < 10; i++) {
-    		double ran = Math.random() * 11;
-    		System.out.println((int)ran);
-    		if (ran == 0) {
-    			break;
-    		}
-    	}
+    	while(true) {
+        	int ran = (int) (Math.random() *11); // 랜덤값의 범위를 1부터 10 까지로 지정
+        	System.out.println(ran); // 랜덤값 출력 
+        	if (ran == 0) {
+        		break;
+        	}
+    	}			
     }
 
     /*
@@ -99,7 +100,24 @@ class LoopPractice {
 
      */
     public void method5() {
-
+    	 // 1 ~ 7 랜덤값
+    	int count1 = 0, count2=0, count3=0, count4=0, count5=0, count6 = 0;
+    	for(int i = 1; i < 11; i++ ) {
+    		int ran = (int) (Math.random() *6+1);
+    		System.out.println(ran);
+    		if(ran == 1) count1++;
+    		if(ran == 2) count2++;
+    		if(ran == 3) count3++;
+    		if(ran == 4) count4++;
+    		if(ran == 5) count5++;
+    		if(ran == 6) count6++;
+    	}
+    	System.out.println("1 : " +count1);
+    	System.out.println("2 : " +count2);
+    	System.out.println("3 : " +count3);
+    	System.out.println("4 : " +count4);
+    	System.out.println("5 : " +count5);
+    	System.out.println("6 : " +count6);
     }
 
     /*
@@ -125,7 +143,27 @@ class LoopPractice {
         이겼습니다 !
     */
     public void method6() {
+    	boolean check = false;
+  //  	System.out.print("당신의 이름을 입력해주세요 : ");
+    //	String name = sc.next();
 
-    }
-
+    	
+    	String RSP[] = {"가위", "바위", "보"};
+    	
+    	while(true) {
+        	System.out.print("가위바위보 : ");
+        	String myHand = sc.next();
+        	
+    		int ran = (int)(Math.random()*3);
+    		
+    		// 컴퓨터 : 가위  나 : 가위
+    		if(RSP[ran].equals(myHand)) {
+    			System.out.println("비겼습니다.");
+    		} /* else if (RSP[ran] == "가위" && myHand == "보") {
+    			System.out.println("졌습니다.");
+    		}  */
+  
+ 	}
+    	
+  }
 }
