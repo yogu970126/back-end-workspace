@@ -67,6 +67,35 @@ public class Calculator {
 	public static int remainder(int a, int b) {
 		return a % b;
 	}
+	
+	/*
+	 * 팩토리얼
+	 * 1! = 1
+	 * 2! = 2 * 1 = 2
+	 * 3! = 3 * 2 * 1 = 6
+	 * n! = n * (N-1) * .... * 1
+	 * */
+	public int factorial(int n) {
+		int result =1;
+		for(int i = n; i >= 1; i--) {
+			result *= i;
+		}
+		return result;
+	}
+	
+	/*
+	 * 재귀 함수(Recursion Function)
+	 * - 메서드 내에서 자기자신을 반복적으로 호출
+	 * - 반복문으로 바꿀 수 있으며 때때로 반복문보다 성능이 나쁠 수도 있음
+	 * - 이해하면 간결한 코드 작성이 가능
+	 * */
+	public int factorial2(int n) {
+		int result = 1;
+		
+		if(n != 1) result = n * factorial2(n-1);
+		
+		return result;
+	}
 
 	
 
