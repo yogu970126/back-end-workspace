@@ -43,12 +43,29 @@ public class Notebook extends Product{
 		super.price = price; // 부모가 public - 어디서든 접근 가능
 		
 		// 3. 부모의 setter 메서드를 호출해서 초기화
-		//		- 부모 클래스에서 settet 메서드를 제공하면 자식 클래스에서 부모의 setter 메서드를 통해 초기화 가능
+		//		- 부모 클래스에서 setter 메서드를 제공하면 자식 클래스에서 부모의 setter 메서드를 통해 초기화 가능
 		super.setBrand(brand);
 		this.setpCode(pCode);
 		setName(name);
-
 	}
+
+	public String getCpu() {
+		return cpu;
+	}
+
+	public void setCpu(String cpu) {
+		this.cpu = cpu;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + ", Notebook [cpu=" + cpu + "]";
+	} // 부모(super)의 toString을 불러와서 붙임
+
+	
+	
+	
+	
 	
 	
 }
