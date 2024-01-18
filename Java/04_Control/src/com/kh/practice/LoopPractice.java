@@ -143,27 +143,90 @@ class LoopPractice {
         이겼습니다 !
     */
     public void method6() {
-    	boolean check = false;
-  //  	System.out.print("당신의 이름을 입력해주세요 : ");
-    //	String name = sc.next();
+    	System.out.print("당신의 이름을 입력해주세요 : ");
+    	String name = sc.nextLine();
 
     	
     	String RSP[] = {"가위", "바위", "보"};
+    	boolean check = true;
     	
-    	while(true) {
+    	while(check) {
         	System.out.print("가위바위보 : ");
-        	String myHand = sc.next();
-        	
-    		int ran = (int)(Math.random()*3);
-    		
-    		// 컴퓨터 : 가위  나 : 가위
-    		if(RSP[ran].equals(myHand)) {
-    			System.out.println("비겼습니다.");
-    		} /* else if (RSP[ran] == "가위" && myHand == "보") {
-    			System.out.println("졌습니다.");
-    		}  */
-  
- 	}
-    	
-  }
+        	String str = sc.nextLine();
+
+	    	int rspRan = (int)(Math.random()*3);
+	    	switch(str) {
+	    	case "가위":
+	        	if(RSP[rspRan].equals(str)) {
+	        		System.out.println("컴퓨터 : " + RSP[rspRan]);
+	        		System.out.println(name + " : " + str);
+	        		System.out.println("비겼습니다.");
+	        		System.out.println();
+	        		break;
+	        	} else if (RSP[rspRan].equals("바위")) {
+	        		System.out.println("컴퓨터 : " + RSP[rspRan]);
+	        		System.out.println(name + " : " + str);
+	        		System.out.println("졌습니다 ㅠㅠ");
+	        		System.out.println();
+	        		break;
+	        	} else if (RSP[rspRan].equals("보")) {
+	        		System.out.println("컴퓨터 : " + RSP[rspRan]);
+	        		System.out.println(name + " : " + str);
+	        		System.out.println("이겼습니다 !");
+	        		check = false;
+	        		break;
+	        	}
+	
+	    	case "바위":
+	        	if(RSP[rspRan].equals(str)) {
+	        		System.out.println("컴퓨터 : " + RSP[rspRan]);
+	        		System.out.println(name + " : " + str);
+	        		System.out.println("비겼습니다.");
+	        		System.out.println();
+	        		break;
+	        	} else if (RSP[rspRan].equals("가위")) {
+	        		System.out.println("컴퓨터 : " + RSP[rspRan]);
+	        		System.out.println(name + " : " + str);
+	        		System.out.println("이겼습니다 !");
+	        		check = false;
+	        		break;
+	        	} else if (RSP[rspRan].equals("보")) {
+	        		System.out.println("컴퓨터 : " + RSP[rspRan]);
+	        		System.out.println(name + " : " + str);
+	        		System.out.println("졌습니다 ㅠㅠ");
+	        		System.out.println();
+	        		break;
+	        	}
+	
+	    	case "보":
+	        	if(RSP[rspRan].equals(str)) {
+	        		System.out.println("컴퓨터 : " + RSP[rspRan]);
+	        		System.out.println(name + " : " + str);
+	        		System.out.println("비겼습니다.");
+	        		System.out.println();
+	        		break;
+	        	}
+	        	  else if (RSP[rspRan].equals("가위")) {
+	        		System.out.println("컴퓨터 : " + RSP[rspRan]);
+	        		System.out.println(name + " : " + str);
+	        		System.out.println("졌습니다 ㅠㅠ");
+	        		System.out.println();
+	        		break;
+	        	} else if (RSP[rspRan].equals("바위")) {
+	        		System.out.println("컴퓨터 : " + RSP[rspRan]);
+	        		System.out.println(name + " : " + str);
+	        		System.out.println("이겼습니다 !");
+	        		check = false;
+	        		break;
+	        	}
+	
+	    	default:
+	    		System.out.println("틀렸당");
+	    		check = false;
+	    		break;
+	    		} 
+	    		
+	    }
+    }
 }
+
