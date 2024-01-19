@@ -37,7 +37,7 @@ public class Application {
 		System.out.println(s2);
 		
 		// 다형성 + 객체 배열
-
+		
 	}
 
 }
