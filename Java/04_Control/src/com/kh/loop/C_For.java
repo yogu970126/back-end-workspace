@@ -109,8 +109,9 @@ public class C_For {
 			System.out.println(str.charAt(i));
 		}
 		/*
-		 * 향상된 for문 for(데이터타입 변수 : 배열) { 변수 : 배열의 값을 하나씩 가지고 옴
-		 * 
+		 * 향상된 for문 for(데이터타입 변수 : 배열) { 
+		 * 		변수 : 배열의 값을 하나씩 가지고 옴
+		 *  }
 		 * 
 		 */
 
