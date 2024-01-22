@@ -45,9 +45,17 @@ class LoopPractice {
     	int i;
 
     	for(i =1; result < 100; i++) {
-    		if(i == 1) {
-    			result +=i;
-    		} else if(i % 2 == 0) {
+//    		if(i == 1) {
+//    			result +=i;
+//    		} else if(i % 2 == 0) {
+//    			i = i * -1;
+//    			result += i;
+//    			i = i * -1;
+//    		} else if(i % 2 != 0) {
+//    			result += i;
+//    		}
+    		
+      		if(i % 2 == 0) {
     			i = i * -1;
     			result += i;
     			i = i * -1;
