@@ -9,20 +9,20 @@ public class Application {
 	
 	Scanner sc = new Scanner(System.in);
 	LibraryController lc = new LibraryController();
+	Member m = new Member();
 
 	
-
 	public static void main(String[] args) {
-		Member member = new Member();
+
 		
 		Application app = new Application();
 		
 		System.out.print("이름 : ");
 		String name = sc.nextLine();
-		member.setName(name);
+		m.setName(name);
 		System.out.print("나이 : ");
 		int age = Integer.parseInt(sc.nextLine());
-		member.setAge(age);
+		m.setAge(age);
 		
 		app.mainMenu();
 		
@@ -58,7 +58,7 @@ public class Application {
 	
 	public void myPage() {
 		
-		System.out.println(member.toString());
+		System.out.println(m.toString());
 		mainMenu();
 	}
 	
