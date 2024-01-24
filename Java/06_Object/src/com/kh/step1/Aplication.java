@@ -4,7 +4,7 @@ import com.kh.step1.model.Tv;
 
 public class Aplication {
 	
-	/*
+	/* 
 	 * 객체 : 실제로 존재하는 것
 	 * 
 	 * 객체 지향 프로그래밍(OOP, Object-Oriented Programming)
@@ -61,7 +61,7 @@ public class Aplication {
 		tv.channelDown();
 		tv.channelDown();
 		tv.channelUp();
-		System.out.println("TV채널 : " + tv.channel);
+		System.out.println("TV 채널 : " + tv.channel);
 	}
 
 }
