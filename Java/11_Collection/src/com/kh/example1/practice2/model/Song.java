@@ -1,6 +1,6 @@
 package com.kh.example1.practice2.model;
 
-public class Song {
+public class Song implements Comparable<Song> {
 	
 	private String title;
 	private String singer;
@@ -30,7 +30,18 @@ public class Song {
 
 	@Override
 	public String toString() {
-		return "Song [title=" + title + ", singer=" + singer + "]";
+		return singer + " - " + title;
+	}
+
+	@Override
+	// 제목 기준
+//	public int compareTo(Song o) {
+//		return this.title.compareTo(o.title);
+//	}
+	
+	// 가수 기준
+	public int compareTo(Song o) {
+		return this.singer.compareTo(o.singer);
 	}
 	
 

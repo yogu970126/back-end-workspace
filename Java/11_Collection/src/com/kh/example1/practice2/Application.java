@@ -5,12 +5,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import com.kh.example1.practice2.controller.MusicController;
 import com.kh.example1.practice2.model.Song;
 
 public class Application {
 	
 	Scanner sc = new Scanner(System.in);
 	List<Song> songList = new ArrayList<>();
+	MusicController mc = new MusicController();
 
 	public static void main(String[] args) {
 		Application app = new Application();
@@ -56,8 +58,10 @@ public class Application {
 				updateMusic();
 				break;
 			case 7:
+				ascendSortByTitle();
 				break;
 			case 8:
+				descendSortBySinger();
 				break;
 			case 9:
 				System.out.println("프로그램을 종료합니다.");
@@ -102,7 +106,7 @@ public class Application {
 	// 3. 전체 곡 목록 출력
 	public void showMusicList() {
 		for(int i = 0; i < songList.size(); i++) {
-			System.out.println(songList.get(i).getSinger() + " - " + songList.get(i).getTitle());
+			System.out.println(songList.get(i));
 		}
 	}
 	
@@ -114,7 +118,7 @@ public class Application {
 		
 		for(int i = 0; i < songList.size(); i++) {
 			if(songList.get(i).getTitle().contains(searchTitle)) {
-				System.out.println(songList.get(i).getSinger() + " - " + songList.get(i).getTitle() + "을(를) 검색 했습니다.");
+				System.out.println(songList.get(i) + "을(를) 검색 했습니다.");
 			} else if(i == songList.size() -1) {
 				System.out.println("발견된 곡이 없습니다.");
 			}
@@ -128,8 +132,8 @@ public class Application {
 		String searchTitle = sc.nextLine();
 		
 		for(int i = 0; i < songList.size(); i++) {
-			if(songList.get(i).getTitle().contains(searchTitle)) {
-				System.out.println(songList.get(i).getSinger() + " - " + songList.get(i).getTitle() + "을(를) 삭제 했습니다.");
+			if(songList.get(i).getTitle().equals(searchTitle)) {
+				System.out.println(songList.get(i) + "을(를) 삭제 했습니다.");
 				songList.remove(i);
 			} else if(i == songList.size() -1) {
 				System.out.println("삭제할 곡이 없습니다.");
@@ -144,29 +148,43 @@ public class Application {
 		String searchTitle = sc.nextLine();
 		
 		for(int i = 0; i < songList.size(); i++) {
-			if(songList.get(i).getTitle().contains(searchTitle)) {
+			if(songList.get(i).getTitle().equals(searchTitle)) {
 				System.out.print("수정할 곡 명 : ");
 				String changeTitle = sc.nextLine();
 				System.out.print("수정할 가수 명 : ");
 				String changeSinger = sc.nextLine();
 				
-				System.out.println(songList.get(i).getSinger() + " - " + songList.get(i).getTitle() + "의 값이 변경 되었습니다.");
+				System.out.println(songList.get(i) + "의 값이 변경 되었습니다.");
 				
 				songList.get(i).setSinger(changeSinger);
 				songList.get(i).setTitle(changeTitle);
+			} else if(i == songList.size() -1) {
+				System.out.println("수정할 곡이 없습니다.");
 			}
 		}
-		
 	}
 	
 	// 7. 곡 명 오름차순 정렬
 	public void ascendSortByTitle() {
-		
+		Collections.sort(songList);
+		for(int i = 0; i < songList.size(); i++) {
+			System.out.println(songList.get(i).getSinger() + " - " + songList.get(i).getTitle());
+		}
 	}
 	
 	// 8. 가수 명 내림차순 정렬
+//	public void descendSortBySinger() {
+//		Collections.reverse(songList);
+//		for(int i = 0; i < songList.size(); i++) {
+//			System.out.println(songList.get(i).getSinger() + " - " + songList.get(i).getTitle());
+//		}
+//	}
+	
 	public void descendSortBySinger() {
-		
+		Collections.sort(songList);
+		for(int i = songList.size() - 1; i >= 0; i--) {
+			System.out.println(songList.get(i).getSinger() + " - " + songList.get(i).getTitle());
+		}
 	}
 
 }
