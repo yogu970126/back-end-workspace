@@ -48,7 +48,7 @@ public class A_TryCatch {
 			
 		} catch(Exception e) {
 			
-			//e.printStackTrace(); 
+//			e.printStackTrace(); 
 			System.out.println(e.getMessage());
 			
 			// printStackTrace() : 예외발생 당시에 호출스택(Call Stack)에 있었던 메서드의 정보와 예외 메세지를
