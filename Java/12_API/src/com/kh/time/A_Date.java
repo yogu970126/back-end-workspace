@@ -1,13 +1,16 @@
 package com.kh.time;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class A_Date {
 
 	public static void main(String[] args) {
 		A_Date a = new A_Date();
-		a.method1();
+//		a.method1();
+		a.method2();
 	}
 	
 	/*
@@ -40,6 +43,50 @@ public class A_Date {
 		// 2024년 1월 26일 (금) 오후 4시 25분 30초
 		System.out.println(formatDate);
 	}
+	
+	
+	/*
+	 * Calendar
+	 * - Date 클래스를 개선한 추상 클래스 (JDK 1.1)
+	 * - 여전히 단점이 존재
+	 * */
+	public void method2() {
+		
+		/*
+		 * 추상 클래스이기 때문에 직접 객체 생성할 수 없다.
+		 * getInstance() 메서드로 Calendar 클래스를 구현한 클래스의 객체를 반환
+		 * 태국 - BuddhistCalendar, 그 외 - GregorianCalendar
+		 * */
+		
+		// Calendar cal = new Calendar(); 추상클래스라 객체생성 X
+		Calendar today = Calendar.getInstance();
+		today = new GregorianCalendar();
+		System.out.println(today);
+		
+		// 년, 월, 일, 시, 분, 초
+		System.out.println("YEAR : " + today.get(Calendar.YEAR) + "년");
+		System.out.println("MONTH : " + (today.get(Calendar.MONTH)+1) + "월");
+		System.out.println("DATE : " + today.get(Calendar.DATE) + "일");
+		System.out.println("HOUR : " + today.get(Calendar.HOUR) + "시"); // 0 ~ 11 시
+		System.out.println("HOUR_OF_DAY : " + today.get(Calendar.HOUR_OF_DAY) + "시"); // 0 ~ 23 시
+		System.out.println("MINUTE : " + today.get(Calendar.MINUTE) + "분");
+		System.out.println("SECOND : " + today.get(Calendar.SECOND) + "초");
+		
+		System.out.println();
+		
+		// 날짜 지정
+		Calendar date = Calendar.getInstance();
+		date.set(2024, Calendar.MAY, 16);
+		
+		System.out.println(date.getTime());
+		
+		// SimpleDateFormat 클래스 사용
+		// 24-05-16 09:25:30
+		SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
+		String formatDate = sdf.format(date.getTime());
+		System.out.println(formatDate);
+		
+		}
 
 }
 
