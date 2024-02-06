@@ -25,4 +25,42 @@
   <servlet-name>WordServlet</servlet-name>
   <url-pattern>/word</url-pattern>
   </servlet-mapping>
+  <servlet>
+  <servlet-name>FormServlet</servlet-name>
+  <servlet-class>servlet.http.FormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>FormServlet</servlet-name>
+  <url-pattern>/fs</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>LifecycleServlet</servlet-name>
+  	<servlet-class>servlet.life.LifecycleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LifecycleServlet</servlet-name>
+  	<url-pattern>/life</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>ConfigServlet</servlet-name>
+  	<servlet-class>servlet.life.ConfigServlet</servlet-class>
+  	<init-param>
+  		<param-name>name</param-name>
+  		<param-value>김유저</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>addr</param-name>
+  		<param-value>서울</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ConfigServlet</servlet-name>
+  <url-pattern>/config</url-pattern>
+  </servlet-mapping>
 </web-app>
+
+
+
+
+
+
