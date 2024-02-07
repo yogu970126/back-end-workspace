@@ -33,7 +33,7 @@ CREATE TABLE tb_member(
     member_id VARCHAR(30) UNIQUE NOT NULL,
     member_pwd VARCHAR(30) NOT NULL,
     member_name VARCHAR(30) NOT NULL,
-    gender VARCHAR(1) CHECK(gender IN('M','F')) NOT NULL,
+    gender VARCHAR(1) CHECK(gender IN('M','F')),
     address VARCHAR(20),
     phone VARCHAR(20),
     status VARCHAR(1) CHECK(status IN ('Y', 'N')) DEFAULT 'N',
@@ -55,12 +55,12 @@ CREATE TABLE tb_rent(
     rent_date DATE DEFAULT(current_date)
 );
 
-ALTER TABLE tb_book ADD CONSTRAINT pub_no_fk
-	FOREIGN KEY (pub_no) REFERENCES tb_publisher(pub_no);
-ALTER TABLE tb_rent ADD CONSTRAINT member_no_fk
-	FOREIGN KEY(member_no) REFERENCES tb_member(member_no);
-ALTER TABLE tb_rent ADD CONSTRAINT bk_no_fk
-	FOREIGN KEY(bk_no) REFERENCES tb_book(bk_no);
+ALTER TABLE tb_book ADD CONSTRAINT pub_no_fk 
+	FOREIGN KEY (pub_no) REFERENCES tb_publisher(pub_no) ON DELETE CASCADE;
+ALTER TABLE tb_rent ADD CONSTRAINT member_no_fk 
+	FOREIGN KEY(member_no) REFERENCES tb_member(member_no) ON DELETE CASCADE; 
+ALTER TABLE tb_rent ADD CONSTRAINT bk_no_fk 
+	FOREIGN KEY(bk_no) REFERENCES tb_book(bk_no) ON DELETE CASCADE;
 
 INSERT INTO tb_rent VALUES(1, 1, 2, default);
 INSERT INTO tb_rent VALUES(2, 1, 3, default);
