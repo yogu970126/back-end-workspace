@@ -26,4 +26,8 @@
   	<filter-name>EncodingFilter</filter-name>
   	<url-pattern>/*</url-pattern> <!-- 전체 경로에 필터를 걸치게 -->
   </filter-mapping>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/404error.jsp</location>
+  </error-page>
 </web-app>
