@@ -17,12 +17,12 @@ public class Application {
 		
 		Application app = new Application();
 		
-		System.out.print("이름 : ");
-		String name = sc.nextLine();
-		m.setName(name);
-		System.out.print("나이 : ");
-		int age = Integer.parseInt(sc.nextLine());
-		m.setAge(age);
+//		System.out.print("이름 : "); 
+//		String name = sc.nextLine();
+//		m.setName(name);
+//		System.out.print("나이 : ");
+//		int age = Integer.parseInt(sc.nextLine());
+//		m.setAge(age);
 		
 		app.mainMenu();
 		
